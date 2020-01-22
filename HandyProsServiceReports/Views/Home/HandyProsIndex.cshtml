@@ -1,0 +1,118 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "HandyPros";
+}
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#handyProsFormId input[type=text]').attr("disabled", true);
+            $('#handyProsFormId textarea').attr("disabled", true);
+        });
+
+
+        function CheckInForm() {
+            $('#handyProsFormId input[type=text]').attr("disabled", false);
+            $('#handyProsFormId textarea').attr("disabled", false);
+
+            $("#checkin").css("display", "none");
+            $("#checkin").css("visibility", "hidden");
+            $("#checkin").attr("disabled", "disabled");
+
+            $("#checkout").css("display", "block");
+            $("#checkout").css("visibility", "visible");
+            $("#checkout").removeAttr("disabled");
+        }
+
+        function CheckOutForm() {
+           // var html = $("#Grid").html();
+            var url = '@Url.Action("DownloadPDF", "Home")';
+           // url = url.replace('html', encodeURIComponent(html));
+            window.location.href = url;
+            // setTimeout(function(){ window.location.href = '@Url.Action("SendEmail","Home")'; }, 2500);
+        }
+
+
+        $(function () {
+            $("#btnSubmit").click(function () {
+                $("input[name='GridHtml']").val($("#Grid").html());
+            });
+        });
+
+
+        //document.addEventListener("DOMContentLoaded", function (event) {
+        //    var address = document.querySelector('#reference')
+        //    if (!navigator.geolocation) {
+        //        console.log("Geolocation is not supported by your browser");
+        //        ipLookup();
+        //    } else {
+        //        navigator.geolocation.getCurrentPosition(success, error);
+        //    }
+
+        //    function success(position) {
+        //        var latitude = position.coords.latitude;
+        //        var longitude = position.coords.longitude;
+        //        reverseGeocodingWithGoogle(longitude, latitude)
+        //    }
+        //    function error() {
+        //        console.log("Unable to retrieve your location");
+        //    }
+        //    function ipLookup() {
+        //        fetch('https://extreme-ip-lookup.com/json/')
+        //            .then(res => res.json())
+        //            .then(response => {
+        //                fallbackProcess(response)
+        //            })
+        //            .catch((data, status) => {
+        //                address.innerText = 'We could not find your location';
+        //            })
+        //    }
+
+        //    function reverseGeocodingWithGoogle(latitude, longitude) {
+        //        fetch(`https://maps.googleapis.com/maps/api/geocode/json?
+        //          latlng=${latitude},${longitude}&key={GOOGLE_MAP_KEY}`)
+        //            .then(res => res.json())
+        //            .then(response => {
+        //                processUserData(response);
+        //            })
+        //            .catch(status => {
+        //                ipLookup()
+        //            })
+        //    }
+
+        //    function processUserData(response) {
+        //        address.innerText = response.results[0].formatted_address
+        //    }
+
+        //    function fallbackProcess(response) {
+        //        address.innerText = `${response.city}, ${response.country}`
+        //    }
+
+
+        //});
+
+    </script>
+
+}
+
+@using (Html.BeginForm("HandyProsIndex", "Home", FormMethod.Post, new { id = "handyProsFormId", @class = "form-horizontal", role = "form" }))
+{
+    <style>
+        textarea::placeholder {
+            text-align: right;
+        }
+    </style>
+
+
+    @Html.AntiForgeryToken()
+
+    <h4>HandyPros Form</h4>
+    <div id="Grid">
+        @Html.Partial("_HandyProsPartial")
+    </div>
+   
+    <input type="button" id="checkin" value="Check In" onclick="CheckInForm();" style="width:6cm;height:0.8cm;" />
+    <input type="button" id="checkout" value="Check out" onclick="CheckOutForm()" disabled style="width:6cm;height:0.8cm;display:none;visibility:hidden" />
+}

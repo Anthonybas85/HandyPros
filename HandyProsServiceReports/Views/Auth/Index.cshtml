@@ -1,0 +1,84 @@
+﻿@using Business.Comm
+@using Microsoft.Web.Helpers
+
+
+
+
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="250" valign="top">
+            @using (Html.BeginForm())
+            {
+
+                @Html.HiddenFor(x => x.RadiusPortalVersion)
+
+                @Html.HiddenFor(x => x.ApplicationID)
+                @Html.HiddenFor(x => x.ReturnURL)
+                @Html.HiddenFor(x => x.EnableCAPTCHA)
+
+
+                <div class="rows">
+                    @Html.LabelFor(x => x.Username)
+                    @Html.EditorFor(x => x.Username)
+                </div>
+                <div class="rows">
+                    @Html.LabelFor(x => x.Password)
+                    @Html.EditorFor(x => x.Password)
+                </div>
+
+                if (Model.EnableCAPTCHA)
+                {
+                    @:<div class="rows">
+                        @ReCaptcha.GetHtml(theme: "white", language: "en", tabIndex: 2)
+                    @:</div>
+                }
+                <div class="rows2">
+                    @Html.CheckBoxFor(x => x.RememeberMe)
+                    @Html.LabelFor(x => x.RememeberMe)
+                </div>
+                <div class="errorRows">
+                    @Html.ValidationSummary()
+                </div>
+                <div class="rows">
+                    <a id="btnLogin" class="mx_button"><span>@CResource.getResource("Login")</span></a>
+                </div>
+
+
+                <input type="image" src="/content/images/trans.gif" />
+            }
+        </td>
+        <td width="20" style="border-right:solid 1px #ccc;"></td>
+        <td width="20"></td>
+        <td valign="top">
+            <div class="rows">
+                <label>@CResource.getResource("CantLogIn")</label>
+            </div>
+
+            <div class="linkList">
+                <div>
+                    <a href="/ResetPassword/">@CResource.getResource("ResetYourPassword")</a>
+                </div>
+                <div>
+
+                </div>
+            </div>
+
+
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Username').focus();
+    });
+
+    $('#btnLogin').click(function () {
+        $(this).closest('form').submit();
+    });
+</script>
+
+<!--
+<script type="text/javascript">document.execCommand("ClearAuthenticationCache");</script>
+-->
