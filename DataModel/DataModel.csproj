@@ -90,6 +90,7 @@
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GeneratePDFModel.cs" />
+    <Compile Include="Models\HandyProsFormModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoggedInUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

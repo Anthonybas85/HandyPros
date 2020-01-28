@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using DataModel.Models;
+using HandyProsServiceReports.Helpers;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
@@ -52,10 +53,10 @@ namespace HandyProsServiceReports.Controllers
 
                 //string html = RenderViewToString(ControllerContext, "~/Views/Home/HandyProsIndex.cshtml", null, false);
                 ////will take ActionMethod and generate the pdf
-                //var model = new GeneratePDFModel();
-                //model.PDFContent = html;
+               // var model = new GeneratePDFModel();
+              //  model.PDFContent = html;
                 //// var fileName = "pdfGenerated" + DateTime.Now.ToLongTimeString() + ".pdf";
-                  Session["fileName"] = "pdfGenerated" + Guid.NewGuid() + ".pdf";
+                Session["fileName"] = "pdfGenerated" + Guid.NewGuid() + ".pdf";
 
                 //return new Rotativa.ViewAsPdf("GeneratePDF", model)
                 //{
@@ -66,8 +67,10 @@ namespace HandyProsServiceReports.Controllers
 
                 return new Rotativa.PartialViewAsPdf("_HandyProsPartial")
                 {
-                    FileName = Session["fileName"].ToString()
+                    FileName = Session["fileName"].ToString(),ContentDisposition = ContentDisposition.Inline
                 };
+
+                // return this.PDF("_HandyProsPartial");
 
                 //using (MemoryStream stream = new System.IO.MemoryStream())
                 //{
@@ -104,67 +107,18 @@ namespace HandyProsServiceReports.Controllers
             return RedirectToAction("HandyProsIndex", "Home");
         }
 
-        static string RenderViewToString(ControllerContext context,
-                                    string viewPath,
-                                    object model = null,
-                                    bool partial = false)
+        [ChildActionOnly]
+        public ActionResult _HandyProsPartial()
         {
-            // first find the ViewEngine for this view
-            ViewEngineResult viewEngineResult = null;
-            if (partial)
-                viewEngineResult = ViewEngines.Engines.FindPartialView(context, viewPath);
-            else
-                viewEngineResult = ViewEngines.Engines.FindView(context, viewPath, null);
-
-            if (viewEngineResult == null)
-                throw new FileNotFoundException("View cannot be found.");
-
-            // get the view and attach the model to view data
-            var view = viewEngineResult.View;
-            context.Controller.ViewData.Model = model;
-
-            string result = null;
-
-            using (var sw = new StringWriter())
-            {
-                var ctx = new ViewContext(context, view,
-                                            context.Controller.ViewData,
-                                            context.Controller.TempData,
-                                            sw);
-                view.Render(ctx, sw);
-                result = sw.ToString();
-            }
-
-            return result;
+            return PartialView("_HandyProsPartial");
         }
+    }
 
-        public static T CreateController<T>(RouteData routeData = null)
-    where T : Controller, new()
+    public static class ControllerExtension
+    {
+        public static PDFActionResult PDF(this Controller controller, string viewName)
         {
-            // create a disconnected controller instance
-            T controller = new T();
-
-            // get context wrapper from HttpContext if available
-            HttpContextBase wrapper;
-            if (System.Web.HttpContext.Current != null)
-                wrapper = new HttpContextWrapper(System.Web.HttpContext.Current);
-            else
-                throw new InvalidOperationException(
-                    "Can't create Controller Context if no " +
-                    "active HttpContext instance is available.");
-
-            if (routeData == null)
-                routeData = new RouteData();
-
-            // add the controller routing if not existing
-            if (!routeData.Values.ContainsKey("controller") &&
-                !routeData.Values.ContainsKey("Controller"))
-                routeData.Values.Add("controller",
-                                     controller.GetType()
-                                               .Name.ToLower().Replace("controller", ""));
-
-            controller.ControllerContext = new ControllerContext(wrapper, routeData, controller);
-            return controller;
+            return new PDFActionResult(viewName);
         }
     }
 }

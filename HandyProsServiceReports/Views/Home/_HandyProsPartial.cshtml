@@ -1,4 +1,4 @@
-﻿
+﻿@model DataModel.Models.HandyProsFormModel
 <div class="page">
     <div>
         <div>
@@ -24,18 +24,18 @@
                 </tr>
                 <tr>
                     <td style="display: grid;">
-                        @Html.Label("Sheet Number", new { @style = "text-align: right;" })
-                        @Html.TextBox("SheetNumber", "", new { @style = "width:6cm;height:0.8cm" })
+                        @Html.LabelFor(x => x.SheetNumber, new { @style = "text-align: right;" })
+                        @Html.TextBoxFor(x => x.SheetNumber, new { @style = "width:6cm;height:0.8cm" })
                     </td>
                     <td></td>
                     <td style="display: flex;">
                         <div style="display:grid;width:6.05cm">
-                            @Html.Label("Reference", new { @style = "text-align: right;" })
-                            @Html.TextBox("Reference", "", new { @style = "height:0.8cm" })
+                            @Html.LabelFor(x => x.Reference, new { @style = "text-align: right;" })
+                            @Html.TextBoxFor(x => x.Reference, new { @style = "height:0.8cm" })
                         </div>
                         <div style="display:grid;width:6.05cm">
-                            @Html.Label("Customer Name", new { @style = "text-align: right;" })
-                            @Html.TextBox("CustomerName", "", new { @style = "height:0.8cm" })
+                            @Html.LabelFor(x => x.CustomerName, new { @style = "text-align: right;" })
+                            @Html.TextBoxFor(x => x.CustomerName, new { @style = "height:0.8cm" })
                         </div>
                     </td>
                 </tr>
@@ -45,18 +45,18 @@
                 </tr>
                 <tr>
                     <td style="display: grid;">
-                        @Html.Label("Time of Inspection", new { @style = "text-align: right;" })
-                        @Html.TextBox("TimeofInspection", "", new { style = "width:6cm;height:0.8cm;" })
+                        @Html.LabelFor(x => x.TimeofInspection, new { @style = "text-align: right;" })
+                        @Html.EditorFor(x => x.TimeofInspection, new { style = "width:6cm;height:0.8cm;" })
                     </td>
                     <td></td>
                     <td style="display: flex;">
                         <div style="display:grid;width:6.05cm">
-                            @Html.Label("Date of Inspection", new { @style = "text-align: right;" })
-                            @Html.TextBox("DateofInspection", "", new { @style = "height:0.8cm" })
+                            @Html.LabelFor(x => x.DateofInspection, new { @style = "text-align: right;" })
+                            @Html.EditorFor(x => x.DateofInspection, new { @style = "height:0.8cm" })
                         </div>
                         <div style="display:grid;width:6.05cm">
-                            @Html.Label("Handy Pro Technician", new { @style = "text-align: right;" })
-                            @Html.TextBox("HandyProTechnician", "", new { @style = "height:0.8cm" })
+                            @Html.LabelFor(x => x.HandyProName, new { @style = "text-align: right;" })
+                            @Html.TextBoxFor(x => x.HandyProName, new { @style = "height:0.8cm" })
                         </div>
                     </td>
                 </tr>
@@ -70,29 +70,42 @@
                         <table>
                             <tr>
                                 <td>
-                                    @Html.TextBox("DB", "DB", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("PART", "PART", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("DBchk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.TextBox("CHECK", "CHECK", new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("DBStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBox("STATUS", "STATUS", new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
-
                             <tr>
                                 <td>
                                     @Html.TextBox("TrackLights", "Track Lights", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("TrackLightschk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsTrackLightsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TrackLightsStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.TrackLightsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    @Html.TextBox("LEDT8/T5", "LED T8/T5", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.CheckBoxFor(x => x.IsLedT8T5Check.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.LedT8T5Status, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
@@ -212,19 +225,7 @@
                                     @Html.TextBox("CamerasStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("Others", "Others", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("Otherschk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("OthersStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
+
                         </table>
                     </td>
                     <td></td>
