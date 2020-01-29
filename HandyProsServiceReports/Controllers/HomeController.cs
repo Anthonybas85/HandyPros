@@ -41,7 +41,13 @@ namespace HandyProsServiceReports.Controllers
             return View();
         }
 
-    
+        [HttpPost]
+        public PartialViewResult SaveForm([Microsoft.AspNetCore.Mvc.FromBody] HandyProsFormModel handyProsFormModel)
+        {
+            return PartialView("_HandyProsPartial", handyProsFormModel);
+        }
+
+
         public ActionResult DownloadPDF()
         {
             try
@@ -108,9 +114,9 @@ namespace HandyProsServiceReports.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult _HandyProsPartial()
+        public ActionResult _HandyProsPartial(HandyProsFormModel handyProsFormModel)
         {
-            return PartialView("_HandyProsPartial");
+            return PartialView("_HandyProsPartial",handyProsFormModel);
         }
     }
 

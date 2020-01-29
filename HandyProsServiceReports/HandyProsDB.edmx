@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HandyProsReportModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HandyProsRetailForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="SheetNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HandyProName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DateofInspection" Type="datetime" Nullable="false" />
+          <Property Name="TimeOfInspection" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ElectricalInspectionDetails" Type="nvarchar(max)" />
+          <Property Name="IsTrackLightsCheck" Type="bit" />
+          <Property Name="TrackLightsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsLedT8T5Check" Type="bit" />
+          <Property Name="LedT8T5Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDownLightsCheck" Type="bit" />
+          <Property Name="DownLightsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSpotsCheck" Type="bit" />
+          <Property Name="SpotsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDBoardCheck" Type="bit" />
+          <Property Name="DBoardStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsEmergencyCheck" Type="bit" />
+          <Property Name="EmergencyStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsPlugsCheck" Type="bit" />
+          <Property Name="PlugsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsExitLightsCheck" Type="bit" />
+          <Property Name="ExitLightsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSignageCheck" Type="bit" />
+          <Property Name="SignageStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCamerasCheck" Type="bit" />
+          <Property Name="CamerasStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsUPSCheck" Type="bit" />
+          <Property Name="UPSStatus" Type="nchar" MaxLength="10" />
+          <Property Name="MechanicalInspectionDetails" Type="nvarchar(max)" />
+          <Property Name="IsVRVVRFCheck" Type="bit" />
+          <Property Name="VRVVRFStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsAHUCheck" Type="bit" />
+          <Property Name="AHUStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDuctSupplyCheck" Type="bit" />
+          <Property Name="DuctSupplyStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsGrillCheck" Type="bit" />
+          <Property Name="GrillStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSplitsCheck" Type="bit" />
+          <Property Name="SplitsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFiltersCheck" Type="bit" />
+          <Property Name="FiltersStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDrainCheck" Type="bit" />
+          <Property Name="DrainStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFreshAirCheck" Type="bit" />
+          <Property Name="FreshAirStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsExhaustCheck" Type="bit" />
+          <Property Name="ExhaustStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFloorDrainCheck" Type="bit" />
+          <Property Name="FloorDrainStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsManholeCheck" Type="bit" />
+          <Property Name="ManholeStatus" Type="nchar" MaxLength="10" />
+          <Property Name="CivilInspectionDetails" Type="nvarchar(max)" />
+          <Property Name="IsFurnitureCheck" Type="bit" />
+          <Property Name="FurnitureStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDrawersCheck" Type="bit" />
+          <Property Name="DrawersStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDoorknobsCheck" Type="bit" />
+          <Property Name="DoorknobsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsHingesCheck" Type="bit" />
+          <Property Name="HingesStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsMirrorsCheck" Type="bit" />
+          <Property Name="MirrorsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsShelvesCheck" Type="bit" />
+          <Property Name="ShelvesStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsRacksCheck" Type="bit" />
+          <Property Name="RacksStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsWindowsCheck" Type="bit" />
+          <Property Name="WindowsStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCeilingCheck" Type="bit" />
+          <Property Name="CeilingStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFloorCheck" Type="bit" />
+          <Property Name="FloorStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFridgeCheck" Type="bit" />
+          <Property Name="FridgeStatus" Type="nchar" MaxLength="10" />
+          <Property Name="HandyProsTechnicianSignature" Type="nvarchar" MaxLength="250" />
+          <Property Name="CustomerRepresentativeSignature" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HandyProsReportModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HandyProsRetailForm" EntityType="Self.HandyProsRetailForm" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HandyProsReportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="HandyProsRetailForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Reference" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SheetNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HandyProName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateofInspection" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeOfInspection" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ElectricalInspectionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsTrackLightsCheck" Type="Boolean" />
+          <Property Name="TrackLightsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsLedT8T5Check" Type="Boolean" />
+          <Property Name="LedT8T5Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDownLightsCheck" Type="Boolean" />
+          <Property Name="DownLightsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSpotsCheck" Type="Boolean" />
+          <Property Name="SpotsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDBoardCheck" Type="Boolean" />
+          <Property Name="DBoardStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsEmergencyCheck" Type="Boolean" />
+          <Property Name="EmergencyStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsPlugsCheck" Type="Boolean" />
+          <Property Name="PlugsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsExitLightsCheck" Type="Boolean" />
+          <Property Name="ExitLightsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSignageCheck" Type="Boolean" />
+          <Property Name="SignageStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCamerasCheck" Type="Boolean" />
+          <Property Name="CamerasStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsUPSCheck" Type="Boolean" />
+          <Property Name="UPSStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MechanicalInspectionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsVRVVRFCheck" Type="Boolean" />
+          <Property Name="VRVVRFStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAHUCheck" Type="Boolean" />
+          <Property Name="AHUStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDuctSupplyCheck" Type="Boolean" />
+          <Property Name="DuctSupplyStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsGrillCheck" Type="Boolean" />
+          <Property Name="GrillStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSplitsCheck" Type="Boolean" />
+          <Property Name="SplitsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFiltersCheck" Type="Boolean" />
+          <Property Name="FiltersStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDrainCheck" Type="Boolean" />
+          <Property Name="DrainStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFreshAirCheck" Type="Boolean" />
+          <Property Name="FreshAirStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsExhaustCheck" Type="Boolean" />
+          <Property Name="ExhaustStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFloorDrainCheck" Type="Boolean" />
+          <Property Name="FloorDrainStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsManholeCheck" Type="Boolean" />
+          <Property Name="ManholeStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CivilInspectionDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsFurnitureCheck" Type="Boolean" />
+          <Property Name="FurnitureStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDrawersCheck" Type="Boolean" />
+          <Property Name="DrawersStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDoorknobsCheck" Type="Boolean" />
+          <Property Name="DoorknobsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsHingesCheck" Type="Boolean" />
+          <Property Name="HingesStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsMirrorsCheck" Type="Boolean" />
+          <Property Name="MirrorsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsShelvesCheck" Type="Boolean" />
+          <Property Name="ShelvesStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsRacksCheck" Type="Boolean" />
+          <Property Name="RacksStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsWindowsCheck" Type="Boolean" />
+          <Property Name="WindowsStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCeilingCheck" Type="Boolean" />
+          <Property Name="CeilingStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFloorCheck" Type="Boolean" />
+          <Property Name="FloorStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFridgeCheck" Type="Boolean" />
+          <Property Name="FridgeStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HandyProsTechnicianSignature" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRepresentativeSignature" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="HandyProsReportEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="HandyProsRetailForms" EntityType="Self.HandyProsRetailForm" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HandyProsReportModelStoreContainer" CdmEntityContainer="HandyProsReportEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="HandyProsReportModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="HandyProsReportModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="HandyProsReportModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="HandyProsReportModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="HandyProsReportModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HandyProsRetailForms">
+            <EntityTypeMapping TypeName="HandyProsReportModel.HandyProsRetailForm">
+              <MappingFragment StoreEntitySet="HandyProsRetailForm">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="SheetNumber" ColumnName="SheetNumber" />
+                <ScalarProperty Name="HandyProName" ColumnName="HandyProName" />
+                <ScalarProperty Name="DateofInspection" ColumnName="DateofInspection" />
+                <ScalarProperty Name="TimeOfInspection" ColumnName="TimeOfInspection" />
+                <ScalarProperty Name="ElectricalInspectionDetails" ColumnName="ElectricalInspectionDetails" />
+                <ScalarProperty Name="IsTrackLightsCheck" ColumnName="IsTrackLightsCheck" />
+                <ScalarProperty Name="TrackLightsStatus" ColumnName="TrackLightsStatus" />
+                <ScalarProperty Name="IsLedT8T5Check" ColumnName="IsLedT8T5Check" />
+                <ScalarProperty Name="LedT8T5Status" ColumnName="LedT8T5Status" />
+                <ScalarProperty Name="IsDownLightsCheck" ColumnName="IsDownLightsCheck" />
+                <ScalarProperty Name="DownLightsStatus" ColumnName="DownLightsStatus" />
+                <ScalarProperty Name="IsSpotsCheck" ColumnName="IsSpotsCheck" />
+                <ScalarProperty Name="SpotsStatus" ColumnName="SpotsStatus" />
+                <ScalarProperty Name="IsDBoardCheck" ColumnName="IsDBoardCheck" />
+                <ScalarProperty Name="DBoardStatus" ColumnName="DBoardStatus" />
+                <ScalarProperty Name="IsEmergencyCheck" ColumnName="IsEmergencyCheck" />
+                <ScalarProperty Name="EmergencyStatus" ColumnName="EmergencyStatus" />
+                <ScalarProperty Name="IsPlugsCheck" ColumnName="IsPlugsCheck" />
+                <ScalarProperty Name="PlugsStatus" ColumnName="PlugsStatus" />
+                <ScalarProperty Name="IsExitLightsCheck" ColumnName="IsExitLightsCheck" />
+                <ScalarProperty Name="ExitLightsStatus" ColumnName="ExitLightsStatus" />
+                <ScalarProperty Name="IsSignageCheck" ColumnName="IsSignageCheck" />
+                <ScalarProperty Name="SignageStatus" ColumnName="SignageStatus" />
+                <ScalarProperty Name="IsCamerasCheck" ColumnName="IsCamerasCheck" />
+                <ScalarProperty Name="CamerasStatus" ColumnName="CamerasStatus" />
+                <ScalarProperty Name="IsUPSCheck" ColumnName="IsUPSCheck" />
+                <ScalarProperty Name="UPSStatus" ColumnName="UPSStatus" />
+                <ScalarProperty Name="MechanicalInspectionDetails" ColumnName="MechanicalInspectionDetails" />
+                <ScalarProperty Name="IsVRVVRFCheck" ColumnName="IsVRVVRFCheck" />
+                <ScalarProperty Name="VRVVRFStatus" ColumnName="VRVVRFStatus" />
+                <ScalarProperty Name="IsAHUCheck" ColumnName="IsAHUCheck" />
+                <ScalarProperty Name="AHUStatus" ColumnName="AHUStatus" />
+                <ScalarProperty Name="IsDuctSupplyCheck" ColumnName="IsDuctSupplyCheck" />
+                <ScalarProperty Name="DuctSupplyStatus" ColumnName="DuctSupplyStatus" />
+                <ScalarProperty Name="IsGrillCheck" ColumnName="IsGrillCheck" />
+                <ScalarProperty Name="GrillStatus" ColumnName="GrillStatus" />
+                <ScalarProperty Name="IsSplitsCheck" ColumnName="IsSplitsCheck" />
+                <ScalarProperty Name="SplitsStatus" ColumnName="SplitsStatus" />
+                <ScalarProperty Name="IsFiltersCheck" ColumnName="IsFiltersCheck" />
+                <ScalarProperty Name="FiltersStatus" ColumnName="FiltersStatus" />
+                <ScalarProperty Name="IsDrainCheck" ColumnName="IsDrainCheck" />
+                <ScalarProperty Name="DrainStatus" ColumnName="DrainStatus" />
+                <ScalarProperty Name="IsFreshAirCheck" ColumnName="IsFreshAirCheck" />
+                <ScalarProperty Name="FreshAirStatus" ColumnName="FreshAirStatus" />
+                <ScalarProperty Name="IsExhaustCheck" ColumnName="IsExhaustCheck" />
+                <ScalarProperty Name="ExhaustStatus" ColumnName="ExhaustStatus" />
+                <ScalarProperty Name="IsFloorDrainCheck" ColumnName="IsFloorDrainCheck" />
+                <ScalarProperty Name="FloorDrainStatus" ColumnName="FloorDrainStatus" />
+                <ScalarProperty Name="IsManholeCheck" ColumnName="IsManholeCheck" />
+                <ScalarProperty Name="ManholeStatus" ColumnName="ManholeStatus" />
+                <ScalarProperty Name="CivilInspectionDetails" ColumnName="CivilInspectionDetails" />
+                <ScalarProperty Name="IsFurnitureCheck" ColumnName="IsFurnitureCheck" />
+                <ScalarProperty Name="FurnitureStatus" ColumnName="FurnitureStatus" />
+                <ScalarProperty Name="IsDrawersCheck" ColumnName="IsDrawersCheck" />
+                <ScalarProperty Name="DrawersStatus" ColumnName="DrawersStatus" />
+                <ScalarProperty Name="IsDoorknobsCheck" ColumnName="IsDoorknobsCheck" />
+                <ScalarProperty Name="DoorknobsStatus" ColumnName="DoorknobsStatus" />
+                <ScalarProperty Name="IsHingesCheck" ColumnName="IsHingesCheck" />
+                <ScalarProperty Name="HingesStatus" ColumnName="HingesStatus" />
+                <ScalarProperty Name="IsMirrorsCheck" ColumnName="IsMirrorsCheck" />
+                <ScalarProperty Name="MirrorsStatus" ColumnName="MirrorsStatus" />
+                <ScalarProperty Name="IsShelvesCheck" ColumnName="IsShelvesCheck" />
+                <ScalarProperty Name="ShelvesStatus" ColumnName="ShelvesStatus" />
+                <ScalarProperty Name="IsRacksCheck" ColumnName="IsRacksCheck" />
+                <ScalarProperty Name="RacksStatus" ColumnName="RacksStatus" />
+                <ScalarProperty Name="IsWindowsCheck" ColumnName="IsWindowsCheck" />
+                <ScalarProperty Name="WindowsStatus" ColumnName="WindowsStatus" />
+                <ScalarProperty Name="IsCeilingCheck" ColumnName="IsCeilingCheck" />
+                <ScalarProperty Name="CeilingStatus" ColumnName="CeilingStatus" />
+                <ScalarProperty Name="IsFloorCheck" ColumnName="IsFloorCheck" />
+                <ScalarProperty Name="FloorStatus" ColumnName="FloorStatus" />
+                <ScalarProperty Name="IsFridgeCheck" ColumnName="IsFridgeCheck" />
+                <ScalarProperty Name="FridgeStatus" ColumnName="FridgeStatus" />
+                <ScalarProperty Name="HandyProsTechnicianSignature" ColumnName="HandyProsTechnicianSignature" />
+                <ScalarProperty Name="CustomerRepresentativeSignature" ColumnName="CustomerRepresentativeSignature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="HandyProsReportModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

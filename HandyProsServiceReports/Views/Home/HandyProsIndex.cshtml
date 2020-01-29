@@ -27,11 +27,101 @@
         }
 
         function CheckOutForm() {
-           // var html = $("#Grid").html();
-            var url = '@Url.Action("DownloadPDF", "Home")';
-           // url = url.replace('html', encodeURIComponent(html));
-            window.location.href = url;
-            // setTimeout(function(){ window.location.href = '@Url.Action("SendEmail","Home")'; }, 2500);
+            var url = "@Url.Action("SaveForm","Home")";
+            var model = {           CustomerName :$("#CustomerName").val()
+          ,Reference :$("#Reference").val()
+          ,SheetNumber :$("#SheetNumber").val()
+          ,HandyProName :$("#HandyProName").val()
+          ,DateofInspection :$("#DateofInspection").val()
+          ,TimeofInspection :$("#TimeofInspection").val() 
+          ,ElectricalInspectionDetails :$("#ElectricalInspectionDetails").val()
+          ,IsTrackLightsCheck :$("#IsTrackLightsCheck").val()
+          ,TrackLightsStatus :$("#TrackLightsStatus").val()
+          ,IsLedT8T5Check :$("#IsLedT8T5Check").val()
+          ,LedT8T5Status :$("#LedT8T5Status").val()
+          ,IsDownLightsCheck :$("#IsDownLightsCheck").val()
+          ,DownLightsStatus :$("#DownLightsStatus").val()
+          ,IsSpotsCheck :$("#IsSpotsCheck").val()
+          ,SpotsStatus :$("#SpotsStatus").val()
+          ,IsDBoardCheck :$("#IsDBoardCheck").val()
+          ,DBoardStatus :$("#DBoardStatus").val()
+          ,IsEmergencyCheck :$("#IsEmergencyCheck").val()
+          ,EmergencyStatus :$("#EmergencyStatus").val()
+          ,IsPlugsCheck :$("#IsPlugsCheck").val()
+          ,PlugsStatus :$("#PlugsStatus").val()
+          ,IsExitLightsCheck :$("#IsExitLightsCheck").val()
+          ,ExitLightsStatus :$("#ExitLightsStatus").val()
+          ,IsSignageCheck :$("#IsSignageCheck").val()
+          ,SignageStatus :$("#SignageStatus").val()
+          ,IsCamerasCheck :$("#IsCamerasCheck").val()
+          ,CamerasStatus :$("#CamerasStatus").val()
+          ,IsUPSCheck :$("#IsUPSCheck").val()
+          ,UPSStatus :$("#UPSStatus").val()
+          ,MechanicalInspectionDetails :$("#MechanicalInspectionDetails").val()
+          ,IsVRVVRFCheck :$("#IsVRVVRFCheck").val()
+          ,VRVVRFStatus :$("#VRVVRFStatus").val()
+          ,IsAHUCheck :$("#IsAHUCheck").val()
+          ,AHUStatus :$("#AHUStatus").val()
+          ,IsDuctSupplyCheck :$("#IsDuctSupplyCheck").val()
+          ,DuctSupplyStatus :$("#DuctSupplyStatus").val()
+          ,IsGrillCheck :$("#IsGrillCheck").val()
+          ,GrillStatus :$("#GrillStatus").val()
+          ,IsSplitsCheck :$("#IsSplitsCheck").val()
+          ,SplitsStatus :$("#SplitsStatus").val()
+          ,IsFiltersCheck :$("#IsFiltersCheck").val()
+          ,FiltersStatus :$("#FiltersStatus").val()
+          ,IsDrainCheck :$("#IsDrainCheck").val()
+          ,DrainStatus :$("#DrainStatus").val()
+          ,IsFreshAirCheck :$("#IsFreshAirCheck").val()
+          ,FreshAirStatus :$("#FreshAirStatus").val()
+          ,IsExhaustCheck :$("#IsExhaustCheck").val()
+          ,ExhaustStatus :$("#ExhaustStatus").val()
+          ,IsFloorDrainCheck :$("#IsFloorDrainCheck").val()
+          ,FloorDrainStatus :$("#FloorDrainStatus").val()
+          ,IsManholeCheck :$("#IsManholeCheck").val()
+          ,ManholeStatus :$("#ManholeStatus").val()
+		  ,CivilInspectionDetails :$("#CivilInspectionDetails").val()
+          ,IsFurnitureCheck :$("#IsFurnitureCheck").val()
+          ,FurnitureStatus :$("#FurnitureStatus").val()
+          ,IsDrawersCheck :$("#IsDrawersCheck").val()
+          ,DrawersStatus :$("#DrawersStatus").val()
+          ,IsDoorknobsCheck :$("#IsDoorknobsCheck").val()
+          ,DoorknobsStatus :$("#DoorknobsStatus").val()
+          ,IsHingesCheck :$("#IsHingesCheck").val()
+          ,HingesStatus :$("#HingesStatus").val()
+          ,IsMirrorsCheck :$("#IsMirrorsCheck").val()
+          ,MirrorsStatus :$("#MirrorsStatus").val()
+          ,IsShelvesCheck :$("#IsShelvesCheck").val()
+          ,ShelvesStatus :$("#ShelvesStatus").val()
+          ,IsRacksCheck :$("#IsRacksCheck").val()
+          ,RacksStatus :$("#RacksStatus").val()
+          ,IsWindowsCheck :$("#IsWindowsCheck").val()
+          ,WindowsStatus :$("#WindowsStatus").val()
+          ,IsCeilingCheck :$("#IsCeilingCheck").val()
+          ,CeilingStatus :$("#CeilingStatus").val()
+          ,IsFloorCheck :$("#IsFloorCheck").val()
+          ,FloorStatus :$("#FloorStatus").val()
+          ,IsFridgeCheck :$("#IsFridgeCheck").val()
+          ,FridgeStatus :$("#FridgeStatus").val()
+          ,HandyProsTechnicianSignature :$("#HandyProsTechnicianSignature").val()
+          ,CustomerRepresentativeSignature :$("#CustomerRepresentativeSignature").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(model),
+                url: url,
+                contentType: "application/json"
+            }).done(function (res) {
+                // var html = $("#Grid").html();
+                var url = '@Url.Action("DownloadPDF", "Home")';
+                // url = url.replace('html', encodeURIComponent(html));
+                window.location.href = url;
+                // setTimeout(function(){ window.location.href = '@Url.Action("SendEmail","Home")'; }, 2500);
+            });
+
+
+         
         }
 
 
