@@ -110,41 +110,67 @@
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("LEDT8T5", "LED T8/T5", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("LEDT8T5chk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("LEDT8T5Status", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     @Html.TextBox("DownLights", "Down Lights", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("DownLightsChk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsDownLightsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("DownLightsStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.DownLightsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
-                            </tr>
+                            </tr>                           
                             <tr>
                                 <td>
                                     @Html.TextBox("Spots", "Spots", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("Spotschk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsSpotsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("SpotsStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.SpotsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    @Html.TextBox("DBoard", "DashBoard", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.CheckBoxFor(x => x.IsDBoardCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.DBoardStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    @Html.TextBox("Emergency", "Emergency", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsEmergencyCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.EmergencyStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+							 <tr>
+                                <td>
+                                    @Html.TextBox("Plugs", "Plugs", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsPlugsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.PlugsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
@@ -153,50 +179,11 @@
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("ExitLightschk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsExitLightsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("ExitLightsStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("Emergency", "Emergency", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("Emergencychk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("EmergencyStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("Plugs", "Plugs", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("Plugschk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("PlugsStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("UPS", "UPS", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("UPSchk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("UPSStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.ExitLightsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
@@ -204,33 +191,45 @@
                                     @Html.TextBox("Signage", "Signage", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("Signagechk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsSignageCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("SignageStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.SignageStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
-                            <tr>
+                               <tr>
                                 <td>
                                     @Html.TextBox("Cameras", "Cameras", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("Cameraschk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsCamerasCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("CamerasStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.CamerasStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td>
+                                    @Html.TextBox("UPS", "UPS", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                               <td>
+                                    @Html.CheckBoxFor(x => x.IsUPSCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.UPSStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
                         </table>
                     </td>
                     <td></td>
                     <td style="width:12.1cm;display:block">
-                        <textarea id="tEIDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:6.0325cm;height: 6.0325cm;"></textarea>
+                        <textarea id="tEIDetails" name="ElectricalInspectionDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:6.0325cm;height: 6.0325cm;"></textarea>
                     </td>
                 </tr>
                 <tr style="height:0.8cm">
@@ -241,169 +240,156 @@
                 </tr>
                 <tr>
                     <td>
-                        <table>
+                        <table> 
+						<tr>
+                                <td>
+                                    @Html.TextBox("VRVVRF", "VRV/VRF", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.CheckBoxFor(x => x.IsVRVVRFCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.VRVVRFStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     @Html.TextBox("AHU", "AHU", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("AHUchk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsAHUCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("AHUStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.AHUStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
-
-                            <tr>
+							<tr>
                                 <td>
-                                    @Html.TextBox("VRVVRF", "VRV/VRF", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("DuctSupply", "Duct Supply", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.CheckBox("VRVVRFchk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsDuctSupplyCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("VRVVRFStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.DuctSupplyStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
+							<tr>
+                                <td>
+                                    @Html.TextBox("Grill", "Grill", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.CheckBoxFor(x => x.IsGrillCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.GrillStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+                           
                             <tr>
                                 <td>
                                     @Html.TextBox("Split", "Split", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.CheckBox("Splitchk", false, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsSplitsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("SplitStatus", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.SplitsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Supply", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Filters", "Filters", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                               <td>
+                                    @Html.CheckBoxFor(x => x.IsFiltersCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.FiltersStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    @Html.TextBox("Drain", "Drain", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsDrainCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.DrainStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    @Html.TextBox("FreshAir", "Fresh Air", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsFreshAirCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.FreshAirStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
+                                </td>
+                            </tr>   
+                            <tr>
+                                <td>
+                                    @Html.TextBox("Exhaust", "Exhaust", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsExhaustCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                <td>
+                                    @Html.TextBoxFor(x => x.ExhaustStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Return", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("FloorDrain", "Floor Drain", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsFloorDrainCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.FloorDrainStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Grill", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Manhole", "Manhole", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsManholeCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Filters", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Drain", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Fresh Air", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Exhaust", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Floor Drain", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Manhole", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.ManholeStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td></td>
                     <td style="width:12.1cm;display:block">
-                        <textarea id="tEIDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:6.0325cm;height: 6.0325cm;"></textarea>
+                        <textarea id="tMIDetails" name="MechanicalInspectionDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:6.0325cm;height: 6.0325cm;"></textarea>
                     </td>
                 </tr>
                 <tr style="height:0.8cm">
@@ -417,166 +403,152 @@
                         <table>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Rolling Shut.", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Furniture", "Furniture", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsFurnitureCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.FurnitureStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
-                            </tr>
-
+                            </tr>	
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Furniture", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Drawers", "Drawers", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                               <td>
+                                    @Html.CheckBoxFor(x => x.IsDrawersCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Drawers", new { @style = "width: 1.9cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.DrawersStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Door knobs", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Doorknobs", "Door knobs", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsDoorknobsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.DoorknobsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Hinges", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Hinges", "Hinges", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsHingesCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.HingesStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Mirrors", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Mirrors", "Mirrors", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsMirrorsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.MirrorsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Shelves", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Shelves", "Shelves", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsShelvesCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.ShelvesStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Racks", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Racks", "Racks", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsRacksCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.RacksStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Windows", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Windows", "Windows", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                               <td>
+                                    @Html.CheckBoxFor(x => x.IsWindowsCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.WindowsStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Ceiling ", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Ceiling", "Ceiling ", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                                 <td>
+                                    @Html.CheckBoxFor(x => x.IsCeilingCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.CeilingStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Floor", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Floor", "Floor", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                </td>
+                                <td style="width:0.15cm"></td>
+                               <td>
+                                    @Html.CheckBoxFor(x => x.IsFloorCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
-                                </td>
-                                <td style="width:0.15cm"></td>
-                                <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.FloorStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "Fridge", new { @style = "width: 1.9cm;height:0.4cm;" })
+                                    @Html.TextBox("Fridge", "Fridge", new { @style = "width: 1.9cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 1.3cm;height:0.4cm;" })
+                                    @Html.CheckBoxFor(x => x.IsFridgeCheck.Value, new { @style = "width: 1.3cm;height:0.4cm;" })
                                 </td>
                                 <td style="width:0.15cm"></td>
                                 <td>
-                                    @Html.TextBox("TIME OF INSPECTION", "", new { @style = "width: 2.5cm;height:0.4cm;" })
+                                    @Html.TextBoxFor(x => x.FridgeStatus, new { @style = "width: 2.5cm;height:0.4cm;" })
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td></td>
                     <td style="width:12.1cm;display:block">
-                        <textarea id="tEIDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:6.0325cm;height: 6.0325cm;"></textarea>
+                        <textarea id="tCIDetails" name="CivilInspectionDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:6.0325cm;height: 6.0325cm;"></textarea>
                     </td>
                 </tr>
                 <tr style="height:0.8cm">
@@ -587,11 +559,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <textarea id="TechnicianSignature" rows="4" cols="100" maxlength="500" style="max-width:6cm;max-height:2.45cm;height: 2.45cm;" placeholder="Handy Pros Technician"></textarea>
+                        <textarea id="TechnicianSignature" name="HandyProsTechnicianSignature" rows="4" cols="100" maxlength="500" style="max-width:6cm;max-height:2.45cm;height: 2.45cm;" placeholder="Handy Pros Technician"></textarea>
                     </td>
                     <td></td>
                     <td style="width:12.1cm;display:block">
-                        <textarea id="tEIDetails" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:2.45cm;height: 2.45cm;" placeholder="Customer’s Representative"></textarea>
+                        <textarea id="CustomerRepresentativeSignature" name="CustomerRepresentativeSignature" rows="4" cols="100" maxlength="500" style="max-width:12.1cm;max-height:2.45cm;height: 2.45cm;" placeholder="Customer’s Representative"></textarea>
                     </td>
                 </tr>
                 <tr style="height:0.8cm">
